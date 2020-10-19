@@ -15,6 +15,18 @@ import vueLazyDom from './lib/index.js'
 Vue.use(vueLazyDom)
 ```
 
+## parameter
+
+ | 参数  | 是否必传  | 类型 |
+ | ---- | ----- | ------ |  
+ | domRef | 是 | string |
+ | haveData |  否 | boolean |
+
+  | 事件  | 是否必传  | 类型 |
+ | ---- | ----- | ------ |  
+ | domload | - | Function(回调) |
+
+
 ## Example
 ```javascript
 
