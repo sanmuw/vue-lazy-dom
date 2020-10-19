@@ -8,7 +8,7 @@ npm install --save vue-lazy-dom
 ```
 
 ## Usage
-``` Vue main.js
+``` javascript
 
 import vueLazyDom from './lib/index.js'
 
