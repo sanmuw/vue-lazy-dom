@@ -1,18 +1,16 @@
 # vue-lazy-dom
 
-> A Vue.js project
+> 一个懒加载 dom 的 vue 组件
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+## Install
+```
+npm install --save vue-lazy-dom
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Usage
+``` Vue main.js
+
+import vueLazyDom from './lib/index.js'
+
+Vue.use(vueLazyDom)
+```
