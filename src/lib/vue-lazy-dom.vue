@@ -32,7 +32,6 @@ export default {
       "IntersectionObserverEntry" in window &&
       "intersectionRatio" in window.IntersectionObserverEntry.prototype
     ) {
-      console.log("支持");
       this.observer = new IntersectionObserver((changes) => {
         for (const change of changes) {
           // console.log(change.time);
@@ -54,7 +53,7 @@ export default {
           // and intersected with rootBounds
           // 目标元素与视口（或根元素）的交叉区域的信息
 
-          console.log(change.intersectionRatio);
+          // console.log(change.intersectionRatio);
           // Ratio of intersectionRect area to boundingClientRect area
           // 目标元素的可见比例，即intersectionRect占boundingClientRect的比例，
           // 完全可见时为1，完全不可见时小于等于0
@@ -64,10 +63,8 @@ export default {
           // 被观察的目标元素，是一个 DOM 节点对象
           // 当前可视区域正在变化的元素
           if (!this.haveData && change.intersectionRatio > 0) {
-            console.log("进入可视区域");
-            this.$emit("func");
+            this.$emit("domload");
           } else {
-            console.log("移出可视区域");
           }
         }
       }, {});
@@ -95,11 +92,10 @@ export default {
         window.innerHeight - offsetTop <= 10 &&
         offsetBottom >= 0
       ) {
-        this.$emit("func");
+        this.$emit("domload");
         this.isLive = true;
       } else if (offsetBottom < 0) {
         this.isLive = false;
-        console.log("移出可视区域");
       }
     },
   },

@@ -1,7 +1,7 @@
 {
   "name": "vue-lazy-dom",
   "description": "A Vue.js plugins",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "wangchunsen <xiaoguiseni@163.com>",
   "license": "MIT",
   "private": false,

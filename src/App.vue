@@ -3,9 +3,8 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <div style="width:100vw;height:100vh;"></div>
-    <vue-lazy-dom @func="sanmu" :haveData="havaData" :domRef='domRef'>
+    <vue-lazy-dom @domload="sanmu" :haveData="havaData" :domRef='domRef'>
       <div class="tem">
-          sss
       </div>
     </vue-lazy-dom>
     <div style="width:100vw;height:100vh;"></div>
