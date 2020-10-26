@@ -11,12 +11,16 @@ export default {
   props: {
     haveData: {
       type: Boolean,
-      default: false
+      default: false,
     },
     domRef: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
+    callbackData: {
+      type: Boolean | Object,
+      default: false,
+    },
   },
   data() {
     return {
@@ -25,7 +29,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.haveData)
     // 判断是否支持IntersectionObserver
     if (
       "IntersectionObserver" in window &&
@@ -63,7 +66,11 @@ export default {
           // 被观察的目标元素，是一个 DOM 节点对象
           // 当前可视区域正在变化的元素
           if (!this.haveData && change.intersectionRatio > 0) {
-            this.$emit("domload");
+            if (!this.callbackData) {
+              this.$emit("domload");
+            } else {
+              this.$emit("domload");
+            }
           } else {
           }
         }
@@ -92,7 +99,11 @@ export default {
         window.innerHeight - offsetTop <= 10 &&
         offsetBottom >= 0
       ) {
-        this.$emit("domload");
+        if (!this.callbackData) {
+          this.$emit("domload");
+        } else {
+          this.$emit("domload");
+        }
         this.isLive = true;
       } else if (offsetBottom < 0) {
         this.isLive = false;
@@ -100,7 +111,7 @@ export default {
     },
   },
   beforeDestroy() {
-    if(this.observer) {
+    if (this.observer) {
       this.observer.disconnect();
     } else {
       window.removeEventListener("scroll", this.scrollHandle, true);
