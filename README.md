@@ -10,7 +10,7 @@ npm install --save vue-lazy-dom
 ## Usage
 ``` javascript
 
-import vueLazyDom from './lib/index.js'
+import vueLazyDom from 'vue-lazy-dom'
 
 Vue.use(vueLazyDom)
 ```
@@ -55,12 +55,13 @@ export default {
 
 ## parameter
 
- | 参数  | 是否必传  | 类型 |
- | ---- | ----- | ------ |  
- | domRef | 是 | string |
- | haveData |  否 | boolean |
- | callbackData |  否 | Object |
+ | 参数  | 是否必传  | 类型 | 说明 |
+ | ---- | ----- | ------ |  ------ |
+ | domRef | 是 | string | 标签的ref |
+ | haveData |  否 | boolean | 是否有数据,来控制无效反复加载问题 |
+ | callbackData |  否 | object | 回调函数的参数 |
+ | moment | 否 | boolean | 控制初始化会在加载 |
 
- | 事件  | 是否必传  | 类型 |
- | ---- | ----- | ------ |  
- | domload | - | Function(回调) |
+ | 事件  | 是否必传  | 类型 | 说明 |
+ | ---- | ----- | ------ | ------ |
+ | domload | - | Function(回调) | 回调函数 |

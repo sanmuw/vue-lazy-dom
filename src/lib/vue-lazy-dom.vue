@@ -21,6 +21,10 @@ export default {
       type: Boolean | Object,
       default: false,
     },
+    moment: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
@@ -67,9 +71,9 @@ export default {
           // 当前可视区域正在变化的元素
           if (!this.haveData && change.intersectionRatio > 0) {
             if (!this.callbackData) {
-              this.$emit("domload");
+              this.moment && this.$emit("domload");
             } else {
-              this.$emit("domload");
+              this.moment && this.$emit("domload",this.callbackData);
             }
           } else {
           }
@@ -100,9 +104,9 @@ export default {
         offsetBottom >= 0
       ) {
         if (!this.callbackData) {
-          this.$emit("domload");
+          this.moment && this.$emit("domload");
         } else {
-          this.$emit("domload");
+          this.moment && this.$emit("domload",this.callbackData);
         }
         this.isLive = true;
       } else if (offsetBottom < 0) {
